@@ -1,0 +1,314 @@
+
+----新建项目
+scrapy startproject 项目名称
+
+----新建爬虫源文件
+cd 到项目文件夹下
+scrapy genspider 爬虫文件 初始域名
+
+----执行爬虫源文件
+scrapy crawl 爬虫源文件名称
+返回的是执行日志和执行结果
+scrapy crawl 爬虫源文件名称 --nolog
+返回执行结果，不显示日志，便于查看结果但是不利于知道错误在哪
+
+----setting.py文件下的ROBOTSTXT_OBEY
+初始值为True，即遵从robot这一“君子协议”，但如果遵从便会使大部分网址信息爬取不成功
+所以学习的时候建议改为False
+
+----setting.py文件下新建LOG_LEVEL
+表示显示指定的日志信息
+LOG_LEVEL = 'ERROR'为显示错误日志，配合 scrapy crawl 爬虫源文件名称 使用
+
+----setting.py文件下的USER_AGENT
+进行UA伪装
+
+----response
+response可以直接使用xpath,不过与之前的少有不同
+response返回的是一个Selector对象
+---	extract()
+可以将Selector对象中data参数中的字符串提取出来
+如果列表调用extract()可以将列表中每一个Selector对象中data参数中的字符串提取出来，返回一个列表
+--	extract_first()
+返回列表中第一个Selector对象中data参数中的字符串
+---	body.decode('utf-8')
+转换编码格式
+
+----持久化存储
+---	基于终端的持久化存储
+要求： 只能对爬虫源文件中parse返回值的数据进行持久化存储
+使用方法：在执行文件代码后面加入 -o 持久化存储文件路径
+缺点：只能存储('json', 'jsonlines', 'jl', 'csv', 'xml', 'marshal', 'pickle')后缀的文件
+好处：简介高效便捷
+---	基于管道
+--	使用方法：
+-	数据解析
+-	在item类中定义相关的属性
+在item.py中
+name = scrapy.Field()
+-	在爬虫源文件中导入item类
+from ..items import Item类名
+-	创建一个item类
+item = 类名
+-	将解析的数据封装到item类型的对象中
+itme[name] = name
+-	将item类型的对象提交到管道进行持久化存储的操作
+yield item
+在pipelines.py中的process_item
+-	在管道类的process_item中要将其接受到的item对象中存储的数据进行持久化存储
+-	在配置文件中开启管道
+打开ITEM_PIPELINES
+'qiubaiPro.pipelines.QiubaiproPipeline'是一个管道类
+300表示的是优先级, 数值越小优先级越高
+爬虫文件提交的item类型的对象最终会提交给优先级较高的管道类
+可以在优先级较高的管道类的process_item函数中添加一行return item就会将item传递给下一个管道类
+
+----全站数据爬取
+--- 将所有url添加到start_urls中
+不推荐
+--- 自行手动进行请求发送
+-- 	yield scrapy.Request(url=new_url, callback=self.parse)
+基于规律向新的url发送请求
+
+----五大核心组件
+---	Spider
+是一个爬虫类
+将产生的url封装成请求对象发送给引擎
+将引擎传递的response传递到parse类中
+将response进行数据解析得到item
+将item传递给引擎
+---	管道
+将item对象进行持久化存储
+---	引擎
+所有数据都将经过引擎
+将Spider封装的请求对象传递给调度器
+将调度器传递的请求对象传递给下载器
+将下载器传递的response传递给Spider
+将Spider传递的item传递给管道
+--	核心作用
+数据流处理
+触发事务
+---	调度器
+将队列中的对象传递给引擎
+--	过滤器
+对请求对象进行去重
+--	队列
+过滤的请求对象放置在队列中
+---	下载器
+基于异步的下载
+针对请求对象去互联网中下载数据
+下载后的response传递给引擎
+
+----请求传参
+解析的数据不在同一张页面中（深度爬取）
+---	在第一张页面中通过数据解析获取url
+---	在Spider类中建立回调函数
+def 函数名(self, response)
+---	使用回调函数
+yield scrapy.Request(url名称, callback=self.回调函数名称)
+---	在回调函数中进行数据解析
+---	建立item
+如果item在parse中创建，则需要将item传递到回调函数中
+---	item冲parse中传递到回调函数
+yield scrapy.Request(url名称, callback=self.回调函数名称， meta={'item':item})
+---	在回调函数中接收item
+item = response.meta['item']
+---	提交到管道
+---	持久化处理
+
+---·图片数据爬取
+---	ImagesPipeline管道类
+--	在pipelines.py中导入ImagesPipeline函数和scrapy库
+import scrapy
+from scrapy.pipelines.images import ImagesPipeline
+--	在pipelines.py中创建一个类
+class 类名(ImagesPipeline)：
+--	在类中新建三个函数
+-	def get_media_requests(self, item, info):
+yield scrapy.Request(item[存放图片url的名称])
+用来得到二进制数据
+-	def file_path(self, request, response=None, info=None, *, item=None):
+用来得到文件名称
+-	def item_completed(self, results, item, info):
+用来传递item到下一个管道类
+--	在setings.py中新建IMAGES_STORE语句
+IMAGES_STORE = 保存文件夹地址
+用来确定图片的存储路径
+--	在setings.py开启管道
+---	图片懒加载
+使用伪属性爬取
+
+----中间件
+
+---	下载中间件
+--	位置处于引擎和下载器中间
+--	作用：批量拦截到整个工程中所有的请求和响应
+--	拦截请求
+-	process_request
+拦截所有请求
+-	process_exception
+拦截发生异常的请求
+然后重新发起请求
+return response
+-	UA伪装
+建立UA池
+user_agent_list = [UA]
+用random.choice随机选定UA
+request.headers['User-Agent'] = random.choice(self.user_agent_list)
+-	代理IP
+建立ip池
+用random.choice随机选定ip
+request.meta['proxy'] = 'http://' + random.choice(self.PROXY_http)
+--	拦截响应
+篡改响应数据和响应对象
+-	process_response
+拦截所有响应
+-	动态加载
+通过spider来指定url
+通过url指定request
+通过request指定response
+基于selenium获取动态加载数据
+在爬虫文件中用selenium实例化的一个浏览器对象因为浏览器对象只要一个所以需要这样创建
+def __init__(self):
+    c_path = r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+    option = webdriver.ChromeOptions()
+    # option.add_experimental_option('excludeSwitches', ['enable-automation'])
+    option.binary_location = c_path
+    self.Manipulator = webdriver.Chrome(options=option)
+在中间件中使用浏览器对象
+Manipulator = spider.Manipulator
+获取到动态加载数据的页面后封装到一个新的相应对象中
+导入函数
+from scrapy.http import HtmlResponse
+进行封装
+new_response = HtmlResponse(url=request.url, body=page_text, encoding='utf-8', request=request)
+将新的响应对象发送给爬虫源文件
+return new_response
+然后再进行数据解析和持久化存储
+最后需要关闭浏览器对象因为浏览器对象只用关闭一次
+def closed(self, spider):
+    self.Manipulator.quit()
+
+---	爬虫中间件
+
+----response
+---	获取文本数据
+response.text
+---	获取二进制数据
+response.body
+
+----CrawlSpider:Spider的一个子类
+-	创建爬虫文件的方法
+scrapy genspider -t crawl 文件名 网址
+---	爬虫文件中的rules
+--	Rule规则解析器
+将链接提取器提取到的链接接来进行指定规则的解析操作
+提取到的链接会自定进行请求发送
+-	链接提取器LinkExtractor
+用于提取链接
+根据指定规则来提取链接
+参数allow = '正则表达式'来提取链接
+-	callback为指定链接解析函数的回调函数
+-	follow
+True / False
+为True时可以将链接提取器 继续作用到 链接提取器提取到的链接 所对应的页面中
+False就是将链接提取器只作用到起始链接
+---	全站数据爬取
+--	分页操作
+-	分别使用多个链接提取器进行链接提取并添加到rules中
+link = LinkExtractor(allow=r'index_\d\.html')
+link_page = LinkExtractor(allow=r'tupian/\d+\.html')
+rules = (
+        Rule(link, callback='parse_item', follow=True),
+        Rule(link_page, callback='parse_page', follow=False),
+    )
+-	创建新的链接解析函数的回调函数
+def parse_item(self, response):
+def parse_page(self, response):
+-	使用上述方法是不能进行item的请求传参的，所以要建立不同的item类来进行传递数据
+class SunporItem(scrapy.Item):
+class PageItem(scrapy.Item):
+-	最后在管道类中要区分不同的item
+if item.__class__.__name__ == 'SunporItem':
+    print(item['page_url'])
+else:
+    print(item['title'])
+
+
+----将信息保存到数据库
+导入pymysql库
+---	新建管道类
+class mysqlPileLine(object):
+---	定义类内全局变量
+conn = None
+cursor = None
+---	因为数据库只要连接一次使用要建立连接数据库函数
+--	def open_spider(self, spider):
+	    self.conn = pymysql.connect(host='127.0.0.1', port=3306, user='root',
+	                                password='160925LQsxyz', db='start')
+host， port， user， password为对应的ip，端口，用户名，密码
+db为连接的数据库名称
+---	将数据写入数据库
+--	self.cursor = self.conn.cursor()
+使用cursor()创建游标对象cursor
+--  try:
+        self.cursor.execute("insert into qiubai values('%s', '%s')" % (item['author'], item['content']))
+        self.conn.commit()
+    except Exception as e:
+        print(e)
+        self.conn.rollback()
+---	关闭光标和数据库连接
+def close_spider(self, spider):
+    self.cursor.close()
+    self.conn.close()
+
+
+----分布爬虫
+在多台计算机上进行爬虫
+---	安装scrapy-redis组件
+pip install scrapy-redis
+---	scrapy-redis作用
+共享调度器和管道
+---	修改爬虫文件
+--	导入scrapy-redis库函数
+from scrapy_redis.spiders import RedisCrawlSpider
+--	修改继承的Spider父类为
+RedisCrawlSpider
+--	将start_urls注释，新建新的属性redis_key
+redis_key = 'sun'
+表示可以被共享的调度器队列名称+
+--	在配置文件中开启指定共享管道
+ITEM_POPELINES = {
+	'scrapy_redis.pipelines.RedisPipeline': 400
+}
+--	指定共享调动器
+-	增加了一个去重容器类配置，作用使用Redis的set集合来存储请求的指纹数据从而实现请求去重的持久化
+DUPEFILTER_CLASS = 'scrapy_redis.dupefiler.RFPDupFilter'
+-	使用scrapy_redis组件自己的调度器
+SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
+-	配置调度器是否要持久化，即当爬虫结束了，要不要清空Redis中的请求队列和去重指纹的set,为True的话就可以实现持久化处理
+SCHEDULER_PERSIST = True
+--	配置redis的配置文件
+使用redis
+-	修改redis.windows.conf
+将bind 127.0.0.1进行删除
+关闭保护模式：protected-mode yes改为no
+-   启动redis服务器
+redis-server
+-	启动redis客户端
+redis-cli
+-	执行工程
+scrapy runspider 爬虫文件名.py
+--	向调度器的队列中放入一个起始的url
+-	调度器队列在redis客户端中
+lpush www.xxx.com
+--	指定redis服务器
+在工程配置文件中添加
+REDIS_HOST = '127.0.0.1'  # 这个为本机服务器，最好写成远程服务器的ip
+REDIS_PORT = 6379
+
+----增量式爬虫
+利用redis数据只能写入一次的特性实现增量式爬虫
+
+
+
