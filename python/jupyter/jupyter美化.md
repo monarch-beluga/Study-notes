@@ -30,4 +30,42 @@
 
   
 
+  ## jupyter 自动补全
+  
+  - 安装
+     如果之前安装过显示目录功能的话，这一步骤可以跳过。
+  
+    ```bash
+    pip install jupyter_contrib_nbextensions
+    ```
+  
+    
+  
+  - 配置
+     安装完之后需要配置 nbextension，注意配置的时候要确保**已关闭** Jupyter Notebook：
+  
+     ```bash
+    jupyter contrib nbextension install --user --skip-running-check
+     ```
+  
+    
+  
+  - 启动 Jupyter Notebook，勾选设置
+     上面两个步骤都没报错后，启动 Jupyter Notebook，上面选项栏会出现 Nbextensions 的选项
+  
+    ![img](https:////upload-images.jianshu.io/upload_images/2759738-f0b422455e3d78b5.png?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp)
+  
+    点开 Nbextensions 的选项，并勾选 Hinterland
+  
+    ![img](https:////upload-images.jianshu.io/upload_images/2759738-72952ade69a47155.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+  
+    使用效果：
+  
+    ![img](https:////upload-images.jianshu.io/upload_images/2759738-857586f61c00363a.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/461/format/webp)
+  
+  - Jupyter Lab 中的自动补全功能
+     按 Tab 键即可使用。
+  
+    ![img](https:////upload-images.jianshu.io/upload_images/2759738-5da5313ea5f01167.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/352/format/webp)
+  
   
