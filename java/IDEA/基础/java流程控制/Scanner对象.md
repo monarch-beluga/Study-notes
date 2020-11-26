@@ -15,8 +15,6 @@ Scanner s = new Scanner(System.in)
 #### 简单使用next()接收输入
 
 ```java
-package com.Monarch.ProcessControl;
-
 import java.util.Scanner;
 
 public class Interactive {
@@ -70,8 +68,6 @@ public class Interactive {
 #### 简单使用nextLine接收输入
 
 ```java
-package com.Monarch.ProcessControl.Scanner;
-
 import java.util.Scanner;
 
 public class InteractiveNextLine {
@@ -119,8 +115,6 @@ public class InteractiveNextLine {
 #### 常见用法
 
 ```java
-package com.Monarch.ProcessControl.Scanner;
-
 import java.util.Scanner;
 
 public class InteractiveOrdinary {
@@ -174,8 +168,6 @@ public class InteractiveOrdinary {
 ### 实例
 
 ```java
-package com.Monarch.ProcessControl.Scanner;
-
 import java.util.Scanner;
 
 public class ScannerInstance {
