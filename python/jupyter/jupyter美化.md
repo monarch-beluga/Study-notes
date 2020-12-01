@@ -46,26 +46,26 @@
   
      ```bash
     jupyter contrib nbextension install --user --skip-running-check
-     ```
+    ```
   
     
   
   - 启动 Jupyter Notebook，勾选设置
      上面两个步骤都没报错后，启动 Jupyter Notebook，上面选项栏会出现 Nbextensions 的选项
   
-    ![img](https:////upload-images.jianshu.io/upload_images/2759738-f0b422455e3d78b5.png?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp)
+    ![image-20201201203953121](https://img2020.cnblogs.com/blog/2213660/202012/2213660-20201201203954240-1322209327.png)
   
     点开 Nbextensions 的选项，并勾选 Hinterland
   
-    ![img](https:////upload-images.jianshu.io/upload_images/2759738-72952ade69a47155.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+    ![image-20201201204012771](https://img2020.cnblogs.com/blog/2213660/202012/2213660-20201201204013908-1670299853.png)
   
     使用效果：
   
-    ![img](https:////upload-images.jianshu.io/upload_images/2759738-857586f61c00363a.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/461/format/webp)
+    ![image-20201201204047346](https://img2020.cnblogs.com/blog/2213660/202012/2213660-20201201204048221-1392561971.png)
   
   - Jupyter Lab 中的自动补全功能
      按 Tab 键即可使用。
   
-    ![img](https:////upload-images.jianshu.io/upload_images/2759738-5da5313ea5f01167.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/352/format/webp)
+    ![image-20201201204106370](https://img2020.cnblogs.com/blog/2213660/202012/2213660-20201201204107335-984533001.png)
   
   
