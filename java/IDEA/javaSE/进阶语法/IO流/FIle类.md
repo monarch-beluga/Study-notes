@@ -79,7 +79,7 @@ public class Method {
 - **isFile()** ：判断File对象是否为文件
 - **exists()** ：判断FIle对象是否存在
 
-#### 文件操作
+#### File类的获取方法
 
 ```java
 import java.io.File;
@@ -118,3 +118,29 @@ public class Method1 {
 - **list()** ：获取指定目录下的所有文件(夹)名称数组
 - **listFiles()** ：获取指定目录下所有文件(夹)File数组
 
+
+
+#### 文件的删除及其他操作
+
+```java
+import java.io.File;
+
+public class Method2 {
+    public static void main(String[] args) {
+        File file1 = new File("E:\\temp\\npp");
+        File[] files1 = file1.listFiles();
+        for (File file : files1) {
+            System.out.println(file.getName()+"文件的大小为："+file.length()+"字节");
+        }
+        File file2 = new File("E:\\temp\\a.txt");
+        System.out.println(file2+"是否存在："+file2.exists());
+        System.out.println("是否删除了文件："+file2.delete());
+        System.out.println(file2+"是否存在："+file2.exists());
+    }
+}
+```
+
+![image-20201202233238163](https://img2020.cnblogs.com/blog/2213660/202012/2213660-20201202233239661-436297791.png) 
+
+- **delete()** ：删除文件
+- **length()** ：获取文件长度
