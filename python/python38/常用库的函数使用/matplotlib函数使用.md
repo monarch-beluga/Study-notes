@@ -2,4 +2,6 @@
 
 **import matplotlib.pyplot as plt ** 
 
-- **plt.imshow()** ：二维数组转图像
+- **imshow()** ：二维数组转图像
+- ***pcolormesh()*** ：给定 x、y和值来绘制图像
+
