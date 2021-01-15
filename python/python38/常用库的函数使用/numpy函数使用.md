@@ -13,5 +13,6 @@
 - ***flipud()*** ：垂直翻转，等效于 ***flip(axis=0)*** 
 - ***flipir()*** ：水平翻转，等效于 ***flip(axis=1)*** 
 - ***flip()*** ：翻转所有轴
+- ***tolist()*** ：numpy转list
 - 
 

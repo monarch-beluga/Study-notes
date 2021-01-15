@@ -1,0 +1,10 @@
+- gdal
+- rasterio
+- piecewise
+- pwlf
+- pyHDF
+- scipy
+- scrapy
+- selenium
+- sklearn
+- 
