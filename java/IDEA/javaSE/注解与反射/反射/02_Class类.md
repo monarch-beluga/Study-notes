@@ -99,3 +99,53 @@ class Teacher extends Person{
 ```
 
 ![image-20210129192515745](https://img2020.cnblogs.com/blog/2213660/202101/2213660-20210129192517300-2019496335.png)
+
+
+
+### 可以有Class对象的类型
+
+- **class** ：外部类，成员(成员内部类，静态内部类)， 局部内部类，匿名内部类
+- **interface** ：接口
+- **[]** ：数组
+- **enum** ：枚举
+- **annotation** ：注解@interface
+- **primitive type** ：基本数据类型
+- **void** 
+
+```java
+import java.lang.annotation.ElementType;
+
+public class Class_Type {
+    public static void main(String[] args) {
+        Class c1 = Object.class;            // 类
+        Class c2 = Comparable.class;        // 接口
+        Class c3 = String[].class;          // 一维数组
+        Class c4 = int[][].class;           // 二维数组
+        Class c5 = Override.class;          // 注解
+        Class c6 = ElementType.class;       // 枚举
+        Class c7 = void.class;              // void
+        Class c8 = Class.class;             // Class
+        Class c9 = Integer.class;           // 基本数据类型
+
+        System.out.println(c1);
+        System.out.println(c2);
+        System.out.println(c3);
+        System.out.println(c4);
+        System.out.println(c5);
+        System.out.println(c6);
+        System.out.println(c7);
+        System.out.println(c8);
+        System.out.println(c9);
+
+        int[] a = new int[10];
+        int[] b = new int[100];
+        System.out.println(a.getClass().hashCode());
+        System.out.println(b.getClass().hashCode());
+    }
+}
+```
+
+![image-20210130200303234](https://img2020.cnblogs.com/blog/2213660/202101/2213660-20210130200305706-149492972.png)
+
+- 一种类型的数据只能由一个 **Class** 对象
+
