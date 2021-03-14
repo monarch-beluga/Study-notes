@@ -90,11 +90,11 @@
 
 **大功告成！！！ **
 
-
+![image-20210314164808950](https://img2020.cnblogs.com/blog/2213660/202103/2213660-20210314164809854-1939873041.png)
 
 #### 后续完善处理
 
-找到路径
+找到路径s
 
 ```shell
 C:\Users\用户名\AppData\Roaming\Typora\typora-user-images
