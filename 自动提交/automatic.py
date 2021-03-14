@@ -1,7 +1,8 @@
 import time
 
 a = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-b = '''git add --all
+b = '''cd ..
+git add --all
 git commit -m "%s"
 git push origin master
 ''' % a
