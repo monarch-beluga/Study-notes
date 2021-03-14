@@ -1,4 +1,4 @@
 git add --all
-git commit -m "自动提交"
+git commit -m "temp"
 git push origin master
 pause
