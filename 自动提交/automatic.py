@@ -6,5 +6,5 @@ git add --all
 git commit -m "%s"
 git push origin master
 ''' % a
-with open(r"自动提交.bat", "w") as f:
+with open(r"automatic1.bat", "w") as f:
     f.write(b)
