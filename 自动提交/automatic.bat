@@ -1,3 +1,1 @@
-python automatic.py
-automatic1.bat
-exit
+python automatic.py &automatic1.bat &exit
