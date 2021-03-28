@@ -14,4 +14,16 @@
 - 删除文件： del 文件名    ***del a.txt***
 - 删除文件夹： rd 文件夹名称   ***rd test***
 
-![image-20210313131347048](https://img2020.cnblogs.com/blog/2213660/202103/2213660-20210313131347922-224544773.png)
+
+
+#### 电脑关机，重启，休眠
+
+```shell
+# 关机
+shutdown -s
+# 重启
+shutdown -r
+# 休眠
+shutdown -h
+```
+
