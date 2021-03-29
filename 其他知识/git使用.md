@@ -109,6 +109,48 @@
 
 
 
+### 绑定账号
+
+#### SSH 配置
+
+> 要想本地与远程仓库交互，必须有一个安全机制防止数据泄漏 ，这个安全机制就是 SSH，因此远程交互之前需要进行 SSH 配置。
+
+1. 生成 **SSH key** 
+
+    ```shell
+    ssh-keygen -t rsa
+    ```
+
+    ![img](https://pic1.zhimg.com/80/v2-32e835d36053411be43d52b8214713a4_720w.png)
+
+2. 添加  **SSH key** 
+
+    打开 GitHub，点击右上角的你的头像，点击设置 **settings**：
+
+    ![image-20210329124418784](https://i.loli.net/2021/03/29/Q16Pvac8bFqtkxH.png)
+
+    点击左侧的 **SSH and GPG keys**，点击右上角的 **New SSH key**：
+
+    ![img](https://pic4.zhimg.com/80/v2-165bcd64e9a3aaa5fb22f3de0c2b8d03_720w.png)
+
+    生成的公钥 （id_rsa.pub 文件中的内容）复制到 Key 所在框， Title 不用填，复制好点击下方的 **Add SSH key** 按钮即可。
+
+    ![image-20210329124622507](https://i.loli.net/2021/03/29/iXwerUQ57fKnzxB.png)
+
+    ![img](https://pic1.zhimg.com/80/v2-398c3ddfe5e26b9f9f3ac82a260c158c_720w.png)
+
+3. 验证绑定
+
+    ```bash
+    ssh -T git@github.com
+    ```
+
+    
+
+
+
+
+
 ## git与github交互
 
 - 下载代码
