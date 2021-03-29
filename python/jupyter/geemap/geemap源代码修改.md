@@ -3,9 +3,9 @@
 - 开始地图加载的图层
 
     ```python
-    if kwargs.get('add_google_map'):
-        self.add_layer(ee_basemaps['ROADMAP'])
-        self.add_layer(ee_basemaps['HYBRID'])
+    if kwargs.get("add_google_map"):
+        self.add_layer(basemap_tiles["ROADMAP"])
+        self.add_layer(basemap_tiles['HYBRID'])
     ```
 
 - **shp_to_ee** 加载shp文件出现无法识别编码的问题
@@ -34,24 +34,26 @@
         reader = shapefile.Reader(in_shp, encoding=encoding)
     ```
 
--  **ee_to_shp** 函数导出shp文件时报错
+- ~~**ee_to_shp** 函数导出shp文件时报错~~
 
-     **ee_to_shp** 中是将数据传递给 **ee_export_vector** 来进行导出，报错是因为没有关闭文件就开始删除，所以要修改 **ee_export_vector** 函数
+     ~~**ee_to_shp** 中是将数据传递给 **ee_export_vector** 来进行导出，报错是因为没有关闭文件就开始删除，所以要修改 **ee_export_vector** 函数~~ 
 
-    ```python
-    try:
-        if filetype == 'shp':
-            z = zipfile.ZipFile(filename)
-            z.extractall(os.path.dirname(filename))
-            # 添加一条关闭文件的代码
-            z.close()
-            os.remove(filename)
-            filename = filename.replace('.zip', '.shp')
-    
-        print('Data downloaded to {}'.format(filename))
-    except Exception as e:
-        raise ValueError(e)
-    ```
+     ==最新版本已解决该问题== 
+
+     ```python
+     try:
+         if filetype == 'shp':
+             z = zipfile.ZipFile(filename)
+             z.extractall(os.path.dirname(filename))
+             # 添加一条关闭文件的代码
+             z.close()
+             os.remove(filename)
+             filename = filename.replace('.zip', '.shp')
+     
+         print('Data downloaded to {}'.format(filename))
+     except Exception as e:
+         raise ValueError(e)
+     ```
 
 - **ee_search** 函数打开gee中的面板，并将gee中的数据下载到本地
 

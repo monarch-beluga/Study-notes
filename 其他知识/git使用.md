@@ -145,9 +145,7 @@
     ssh -T git@github.com
     ```
 
-    
-
-
+    ![image-20210329132512197](https://i.loli.net/2021/03/29/sUg6PJvAqFy7XIh.png)
 
 
 
