@@ -10,7 +10,7 @@ JavaEE：企业级java开发	Web
 
 
 
-> 趋势
+> #### 趋势
 
 1、岗位需求
 
@@ -22,7 +22,7 @@ JavaEE：企业级java开发	Web
 
 
 
-> 什么是数据库
+> #### 什么是数据库
 
 数据库 (DB， DataBase)
 
@@ -32,7 +32,7 @@ JavaEE：企业级java开发	Web
 
 
 
-> 数据库分类
+> #### 数据库分类
 
 - **关系型数据库**：(SQL)
     - MySQL, Oracle, Sql Server, DB2, SQLlite
@@ -51,7 +51,7 @@ JavaEE：企业级java开发	Web
 
 
 
-> MySQL简介
+> #### MySQL简介
 
 MySQL是一个 **关系型数据库管理系统** 
 
@@ -71,7 +71,7 @@ MySQL是一个 **关系型数据库管理系统**
 
 
 
-> 安装MySQL
+> #### 安装MySQL
 
 1、 解压到指定目录
 
@@ -114,3 +114,122 @@ datadir=[安装目录]/data/	# 不要手动新建，会自动生成data文件夹
 sc delete mysql
 ```
 
+
+
+> #### SQLyog
+
+1、 https://sqlyog.en.softonic.com/ 社区版下载链接
+
+2、 直接安装
+
+3、 打开SQLyog, 在 ==启动mysql服务后== 连接登录
+
+![image-20210423121640169](https://img2020.cnblogs.com/blog/2213660/202104/2213660-20210423121641254-149231400.png) 
+
+4、连接成功
+
+![image-20210423121722857](https://img2020.cnblogs.com/blog/2213660/202104/2213660-20210423121723468-989463624.png) 
+
+5、 新建一个数据库
+
+![image-20210423121914985](https://img2020.cnblogs.com/blog/2213660/202104/2213660-20210423121915522-1979074833.png) 
+
+相当于 **sql** 代码
+
+```sql
+CREATE DATABASE `school`CHARACTER SET utf8 COLLATE utf8_general_ci; 
+```
+
+==sqlyog中的每一个执行操作，本质就是对应了一个sql语句执行，可以在软件的历史记录中使用== 
+
+6、 新建一张表
+
+```
+字段: id, name, age
+```
+
+![image-20210423122748084](https://img2020.cnblogs.com/blog/2213660/202104/2213660-20210423122748713-380894290.png) 
+
+```sql
+CREATE TABLE `school`.`student` ( `id` INT(10) NOT NULL COMMENT '学员id', `name` VARCHAR(100) NOT NULL COMMENT '学员姓名', `age` INT(3) NOT NULL COMMENT '学员年龄', PRIMARY KEY (`id`) ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci; 
+```
+
+7、 查看表
+
+8、 尝试添加多条记录
+
+
+
+## 命令行SQL语句
+
+> 连接数据库
+
+命令行连接
+
+```sql
+mysql -uroot -p			--连接数据库
+--然后输入密码
+```
+
+![image-20210423170233118](https://img2020.cnblogs.com/blog/2213660/202104/2213660-20210423170234225-998911111.png) 
+
+
+
+> 简单的语句 ==**注意所有的sql语句都需要以分号结尾**== 
+
+```sql
+show databases;		--查看所有的数据库
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| school             |
+| sys                |
++--------------------+
+---------------------------------------------------
+
+use school;			-- 切换/使用数据库
+Database changed
+
+show tables;		-- 查看数据库中的所有表
++------------------+
+| Tables_in_school |
++------------------+
+| student          |
++------------------+
+-------------------------------------------------			
+
+describe student;		-- 显示数据库中指定表的结构
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int          | NO   | PRI | NULL    |       |
+| name  | varchar(100) | NO   |     | NULL    |       |
+| age   | int          | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+-------------------------------------------------------
+
+create database test;	-- 创建数据库
+
+drop database test;			-- 删除数据库
+
+exit;    	-- 退出
+
+-- 单行注释
+/*		(多行注释)
+lka
+aga
+gasd
+*/
+```
+
+
+
+> 数据库语言
+
+- DDL: 数据库定义语言
+- DML: 数据库操作与管理语言
+- DQL: 数据库查询语言
+- DCL: 数据库控制语言
