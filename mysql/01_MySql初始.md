@@ -84,6 +84,7 @@ MySQL是一个 **关系型数据库管理系统**
 ```bash
 [mysqld]
 # 路径注意使用反斜杠 / 或者 双杠 \\
+port = 3306
 basedir=[安装目录]
 datadir=[安装目录]/data/	# 不要手动新建，会自动生成data文件夹
 ```
@@ -92,13 +93,15 @@ datadir=[安装目录]/data/	# 不要手动新建，会自动生成data文件夹
 
 6、 进入mysql **bin** 目录，然后输入 `mysqld --install` 安装mysql
 
-7、 再输入 `mysqld --initialize-insecure --console` 初始化数据文件
+7、 再输入 `mysqld --initialize-insecure --user=mysql` 初始化数据文件
 
 8、 输入 `net start mysql` 启动mysql服务
 
 ![image-20210423003244524](https://img2020.cnblogs.com/blog/2213660/202104/2213660-20210423003245110-1593826814.png) 
 
-9、 输入 `*mysqladmin -uroot -p password 123456` 修改密码为123456
+9、 输入 `mysql -uroot -p` 进入mysql
+
+9、 输入 `alter user 'root'@'localhost' identified with mysql_native_password by '123456';` 修改密码为123456
 
 9、 输入 `mysql -u root -p123456` 进去mysql
 
