@@ -1,6 +1,6 @@
 ## DQL查询数据(最重点)
 
-#### DQL
+### DQL
 
 (Data Query LANGUAGE：数据查询语言)
 
@@ -11,138 +11,11 @@
 
 **==使用的表与数据==** 
 
-```sql
--- 创建年级表
-create table grade (
-	GradeID int(11) not null auto_increment comment '年级编号',
-	GradeName varchar(50) not null comment '年级名称',
-	primary key (GradeID)
-) engine=innodb charset=utf8;
-
--- 插入数据
-insert into grade (GradeName) values ('大一'), ('大二'), ('大三'), ('大四'), ('预科班');
-
--- 创建成绩表
-create table result (
-	StudentNo int(4) not null comment '学号',
-	SubjectNo int(4) not null comment '课程编号',
-	ExamDate datetime not null comment '考试日期',
-	StudentResult int(4) not null comment '考试成绩',
-	key SubjectNo (SubjectNo)
-) engine=innodb charset=utf8;
-
--- 插入数据
-insert into result (StudentNo, SubjectNo, ExamDate, StudentResult) 
-values
-(1000,1,'2013-11-11 16:00:00',85),
-(1000,5,'2013-11-12 16:00:00',70),
-(1000,9,'2013-11-11 09:00:00',68),
-(1000,13,'2013-11-13 16:00:00',98),
-(1000,57,'2013-11-14 16:00:00',58),
-(1001,1,'2013-11-11 16:00:00',83),
-(1001,5,'2013-11-12 16:00:00',78),
-(1001,9,'2013-11-11 09:00:00',80),
-(1001,13,'2013-11-13 16:00:00',95),
-(1001,17,'2013-11-14 16:00:00',78),
-(1002,2,'2013-11-11 16:00:00',85),
-(1002,6,'2013-11-12 16:00:00',78),
-(1002,10,'2013-11-11 09:00:00',58),
-(1002,14,'2013-11-13 16:00:00',88),
-(1002,17,'2013-11-14 16:00:00',88),
-(1003,2,'2013-11-11 16:00:00',82),
-(1003,6,'2013-11-12 16:00:00',90),
-(1003,10,'2013-11-11 09:00:00',98),
-(1003,14,'2013-11-13 16:00:00',94),
-(1003,17,'2013-11-14 16:00:00',78),
-(1004,3,'2013-11-11 16:00:00',86),
-(1004,7,'2013-11-12 16:00:00',74),
-(1004,11,'2013-11-11 09:00:00',85),
-(1004,15,'2013-11-13 16:00:00',95),
-(1004,17,'2013-11-14 16:00:00',65),
-(1005,3,'2013-11-11 16:00:00',90),
-(1005,7,'2013-11-12 16:00:00',80),
-(1005,11,'2013-11-11 09:00:00',86),
-(1005,15,'2013-11-13 16:00:00',96),
-(1005,17,'2013-11-14 16:00:00',78),
-(1006,4,'2013-11-11 16:00:00',55),
-(1006,8,'2013-11-12 16:00:00',50),
-(1006,12,'2013-11-11 09:00:00',58),
-(1006,16,'2013-11-13 16:00:00',78),
-(1006,17,'2013-11-14 16:00:00',58),
-(1007,4,'2013-11-11 16:00:00',99),
-(1007,8,'2013-11-12 16:00:00',99),
-(1007,12,'2013-11-11 09:00:00',98),
-(1007,16,'2013-11-13 16:00:00',98),
-(1007,17,'2013-11-14 16:00:00',98);
-
--- 学生表
-create table student(
-	StudentNo int(4) not null comment '学号',
-	LoginPwd varchar(20) default '123456' comment '密码',
-	StudentName varchar(20) not null comment '学生姓名',
-	Sex enum('M', 'W', 'null') default null comment '性别',
-	GradeID int(11) default null comment '年级编号',
-	Phone varchar(50) default null comment '联系电话',
-	Address varchar(255) default null comment '地址',
-	BornDate DateTime default null comment '出生时间',
-	Email varchar(50) default null comment '邮箱',
-	IdentityCard varchar(18) default null comment '身份证号',
-	primary key (StudentNo),
-	unique key IdentityCard (IdentityCard),
-	key Email (Email)
-) engine=innodb charset=utf8;
-
--- 插入数据
-insert into student (StudentNo, StudentName, Sex, Gradeid, Phone, Address, Email, IdentityCard)
-values
-(1000, '张三', 'M', 2, '13456789536', '北京朝阳', 'kies123@qq.com', '123456198001011234'),
-(1001, '李四', 'M', 1, '13455589896', '广东深圳', 'kies124@qq.com', '123456198001011247'),
-(1002, '丽丽', 'W', 2, '13457889536', '广东广州', 'kies125@qq.com', '123456198001011263'),
-(1003, '小兰', 'W', 3, '15456789536', '北京朝阳', 'kies126@qq.com', '123456198001022234'),
-(1004, '小红', 'W', 5, '19656789536', '河南开封', 'kies173@qq.com', '123456198001033234'),
-(1005, '王五', 'M', 4, '18756789536', '陕西西安', 'kies153@qq.com', '123456198001047234'),
-(1006, '小微', 'W', 5, '13656789536', '广东深圳', 'kues123@qq.com', '123456198001014234'),
-(1007, '阿伟', 'M', 4, '12556789536', '四川成都', 'kess123@qq.com', '123456198001078234');
-
-
--- 创建课程表
-create table subject (
-	SubjectNo int(11) not null auto_increment comment '课程编号',
-	SubjectName varchar(50) default null comment '课程名称',
-	ClassHour int(4) default null comment '学时',
-	GradeID int(4) default null comment '年级编号',
-	primary key(SubjectNo)
-) engine=innodb charset=utf8;
-
--- 数据插入
-insert into subject (SubjectNo,SubjectName,ClassHour,GradeID)
-values
-(1,'高等数学-1',110,1),
-(2,'高等数学-2',110,2),
-(3,'高等数学-3',100,3),
-(4,'高等数学-4',130,4),
-(5,'C语言-1',110,1),
-(6,'C语言-2',110,2),
-(7,'C语言-3',100,3),
-(8,'C语言-4',130,4),
-(9,'Java程序设计-1',110,1),
-(10,'Java程序设计-2',110,2),
-(11,'Java程序设计-3',100,3),
-(12,'Java程序设计-4',130,4),
-(13,'数据库结构-1',110,1),
-(14,'数据库结构-2',110,2),
-(15,'数据库结构-3',100,3),
-(16,'数据库结构-4',130,4),
-(17,'C#基础',130,1);
-```
+https://github.com/monarch-beluga/Study-Code/blob/master/mysql/DQL.sql
 
 
 
-
-
-
-
-#### 查询指定字段
+### 查询指定字段
 
 >  查询整张表：select * from <表名>;
 
@@ -202,7 +75,7 @@ select `表达式` from <表名>
 
 
 
-#### where 条件子句
+### where 条件子句
 
 > 逻辑运算符
 
@@ -252,3 +125,223 @@ select studentno, studentname, address from student where address like '%北京%
 select studentno, studentname from student where studentname in ('张三', '李四', '王五');
 ```
 
+
+
+### 联表查询
+
+> Jion 对比
+
+![image-20210503102122645](https://img2020.cnblogs.com/blog/2213660/202105/2213660-20210503102123787-1645091320.png) 
+
+1. 分析需求，分析查询的字段来自哪些表 (连接查询)
+2. 确定使用哪种连接查询
+3. 确定交叉点 (这两个表中那个数据是相同的)
+4. 判断的条件
+
+> 两表查询
+
+```sql
+------------- 联表查询 join ----------
+--- 查询参加了考试的同学(学号，姓名，科目编号，分数)
+-- inner join
+select s.studentNo, studentname, subjectno, studentresult			-- 查询字段
+from student as s				-- 设置别名
+inner join result as r			-- 连接方法
+where s.studentno = r.studentno;		-- 确定交叉点并判断
+
+-- right join
+select s.studentNo, studentname, subjectno, studentresult
+from student as s
+inner join result as r
+on s.studentno = r.studentno;		-- on等效于where，一般在联表查询时用on
+
+-- left join
+select s.studentNo, studentname, subjectno, studentresult
+from student as s
+left join result as r
+on s.studentno = r.studentno;
+```
+
+| 操作       | 描述                                                     |
+| ---------- | -------------------------------------------------------- |
+| inner join | 返回匹配条件的行                                         |
+| left join  | 会从左表中返回所有的行，右表中没有匹配条件的行用NULL填充 |
+| right join | 会从右表中返回所有的行，左表中没有匹配条件的行用NULL填充 |
+
+格式：
+
+```sql
+select <字段>, <字段>, <字段>, <字段>...		-- 两表重合的字段要指定一个表显示
+from <左表> as l					-- 一般都会使用别名
+<连接类型> <右表> as r			-- 默认为inner join
+on <判断条件>
+[where 联表查询之后再进行筛选];
+```
+
+> 多表查询
+
+```sql
+--- 查询参加了考试的学生的学号，姓名，科目名，分数 (三表联合)
+select s.studentno, studentname, subjectname, studentresult
+from student as s
+inner join result as r
+on s.studentno = r.studentno
+inner join subject as sub
+on sub.subjectno = r.subjectno;
+```
+
+**多表联合即在两表联合的基础上再添加多个连接类型与判断条件**
+
+格式
+
+```sql
+select <字段>, <字段>, <字段>, <字段>...
+from <表1> as t1
+<连接类型> <表2> as t2
+on <判断条件>
+<连接类型> <表3> as t3
+on <判断条件>
+...
+[where 联表查询之后再进行筛选];
+```
+
+> 自连接
+
+自己的表和自己的表连接，核心：==一张表拆为两张一样的表即可== 
+
+```sql
+-- --- 表与数据
+create table category (
+	categoryid int(10) unsigned not null auto_increment comment '主题id',
+	pid int(10) not null comment '父id',
+	categoryname varchar(50) not null comment '主题名字',
+	primary key (categoryid)
+)engine = innodb auto_increment=2 charset=utf8;
+
+insert into category (pid, categoryname)
+values
+(1, '信息技术'),
+(1, '软件开发'),
+(3, '数据库'),
+(1, '美术设计'),
+(3, 'web开发'),
+(5, 'ps技术'),
+(2, '办公信息');
+```
+
+父表
+
+| categoryid | categoryName |
+| ---------- | ------------ |
+| 2          | 信息技术     |
+| 3          | 软件开发     |
+| 5          | 美术设计     |
+
+子表
+
+| pid  | categoryid | categoryName |
+| ---- | ---------- | ------------ |
+| 3    | 4          | 数据库       |
+| 2    | 8          | 办公信息     |
+| 3    | 6          | web开发      |
+| 5    | 7          | ps技术       |
+
+操作：查询父类对应的子类关系
+
+| 父类     | 子类     |
+| -------- | -------- |
+| 信息技术 | 办公信息 |
+| 软件开发 | 数据库   |
+| 软件开发 | web开发  |
+| 美术设计 | ps技术   |
+
+```SQL
+select l.categoryname as '父类', r.categoryname as '子类'
+from category as l
+inner join category as r			-- 自己与自己连接
+on l.categoryid = r.pid;
+-- +----------+----------+
+-- | 父类     | 子类     |
+-- +----------+----------+
+-- | 软件开发 | 数据库   |
+-- | 软件开发 | web开发  |
+-- | 美术设计 | ps技术   |
+-- | 信息技术 | 办公信息 |
+-- +----------+----------+	
+```
+
+
+
+### 分页与排序
+
+> 排序
+
+升序 ==asc== 降序 ==desc== 
+
+```sql
+select s.studentno, studentname, subjectname, studentresult
+from student as s
+inner join result as r
+on s.studentno = r.studentno
+inner join subject as sub
+on sub.subjectno = r.subjectno
+where subjectname = 'C#基础'
+order by studentresult desc;			-- 降序
+```
+
+![image-20210504091640449](https://img2020.cnblogs.com/blog/2213660/202105/2213660-20210504091640932-1344457646.png) 
+
+格式：==order by== <字段> ==asc/desc== 
+
+```sql
+-- --- 多级排序：先以学号排序，再以学科名称排序
+select s.studentno, studentname, subjectname, studentresult
+from student as s
+inner join result as r
+on s.studentno = r.studentno
+inner join subject as sub
+on sub.subjectno = r.subjectno
+order by studentno asc, subjectname asc;		-- 多条排序字段用逗号分隔
+```
+
+多级排序格式：==order by== <字段1> ==asc/desc==, <字段2> ==asc/desc== ...
+
+多级排序在保证前面字段排序的结果下再进行排序
+
+> 分页
+
+当数据量十分大时，为了缓解数据库压力，给人的体验更好
+
+```sql
+-- --- 分页：下面以每个学员为一页，即一页4个数据
+-- 查看所有
+select s.studentno, studentname, subjectname, studentresult
+from student as s
+inner join result as r
+on s.studentno = r.studentno
+inner join subject as sub
+on sub.subjectno = r.subjectno
+order by studentno asc;
+-- 查看第一个
+select s.studentno, studentname, subjectname, studentresult
+from student as s
+inner join result as r
+on s.studentno = r.studentno
+inner join subject as sub
+on sub.subjectno = r.subjectno
+order by studentno asc
+limit 0,4;
+-- 查看第二个
+select s.studentno, studentname, subjectname, studentresult
+from student as s
+inner join result as r
+on s.studentno = r.studentno
+inner join subject as sub
+on sub.subjectno = r.subjectno
+order by studentno asc
+limit 4,4;
+```
+
+格式：**limit <起始行>, <行数>** 
+
+==注：第一条数据为 0== 
