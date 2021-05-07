@@ -345,3 +345,89 @@ limit 4,4;
 格式：**limit <起始行>, <行数>** 
 
 ==注：第一条数据为 0== 
+
+
+
+### 子查询
+
+```sql
+-- --- 查询'C#基础'分数不小于80分的学生的学号和姓名
+-- 1.使用联表
+select distinct s.studentno, studentname
+from student as s
+inner join result as r
+on s.studentno = r.studentno
+inner join subject as sub
+on sub.subjectno = r.subjectno
+where subjectname = 'C#基础' and studentresult > 80;
+-- 2.使用子查询
+select distinct studentno, studentname 
+from student 
+where studentno in (
+	select studentno 
+	from result 
+	where studentresult > 80 and subjectno = (
+		select subjectno 
+		from subject
+		where subjectname = 'C#基础'
+	)
+);
+```
+
+本质：==在where子句中添加一个查询语句== 
+
+由于子查询只运用了 **select** 查询语句，而未使用联表，那么子查询的效率是更高的
+
+当我们需要查询两个或多个表的字段时，我们就用联表查询，
+
+当我们只需要查询一个表的字段，但是需求涉及到多个表时，我们就使用子查询来提高效率
+
+**子查询和联表查询是可以嵌套使用的** 
+
+
+
+### 分组和过滤
+
+```sql
+-- 查询每个科目的平均分、最高分、最低分
+select subjectname as 课程名称,
+avg(studentresult) as 平均分,
+max(studentresult) as 最高分,
+min(studentresult) as 最低分
+from result as r
+inner join subject as sub
+on r.subjectno = sub.subjectno
+group by subjectname  		-- 通过什么来分组
+having 平均分 > 80;			-- 过滤
+```
+
+==group by== : 分组
+
+==having== : 过滤(作用相当于where，但是是作用于分组后的数据，且不能使用where来判断分组后的数据)
+
+
+
+### 总结
+
+查询语句的基本格式:
+
+select <字段>, <字段>...
+
+from <表>
+
+[xxx join <表> on <字段> = <字段>]
+
+...
+
+[where <条件> and <条件> ...]
+
+[group by <分组字段>]
+
+[having <条件>]
+
+[order by <字段> asc/desc]
+
+[limit n, m];
+
+**上述格式中关键字的使用位置顺序很重要，如where不能在order by 后面** 
+
