@@ -2,6 +2,8 @@
 
 ### 1. 命令优化
 
+```bash
+
 - set tabstop=4：tab键设置为4个空格 
 - set number：显示行号
 - set cindent：设置c语言标准缩进方式
