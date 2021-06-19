@@ -21,7 +21,7 @@
 - 配置
 
   ```bash
-  jt -t monokai -f roboto -fs 14 -nfs 14 -tfs 14 -ofs 11
+  jt -t monokai -f roboto -fs 12 -nfs 12 -tfs 12 -ofs 11 -cellw 920 -T -N
   ```
 
   ![image-20201120162027546](https://img2020.cnblogs.com/blog/2213660/202011/2213660-20201120162028380-1937084210.png)
