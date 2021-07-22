@@ -23,6 +23,8 @@ engine=innodb charset=utf8;
 
 
 
+
+
 > 方式二：在已有的表中添加外键
 
 ```sql
@@ -149,7 +151,7 @@ select * from student;
 | not berween...and... | 不在区间内                                 |
 | in                   | 在集合中                                   |
 | not in               | 不在集合中                                 |
-| like                 | 模糊匹配，'%'匹配多个字符，'_'匹配一个字符|
+| like                 | 模糊匹配，'%'匹配多个字符，'_'匹配一个字符 |
 | regexp 或 rlike      | 正则式匹配                                 |
 | is null              | 为空                                       |
 | is not null          | 不为空                                     |
@@ -195,4 +197,4 @@ truncate grade;
 - 相同点：都能删除数据，都不会删除表结构
 - 不同点：
     - truncate 重新设置 自增列 计数器会归零
-    - truncate 不会影像事务
+    - truncate 不会影响事务
