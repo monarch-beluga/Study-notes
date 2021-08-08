@@ -20,16 +20,28 @@
 
         ![image-20201116101759957](https://img2020.cnblogs.com/blog/2213660/202011/2213660-20201116101801370-283716018.png)
 
--  编写一个 **startup.py** 的文件
+- 编写一个 **startup.py** 的文件
 
-    ```python
-    import os
-    # 这里的1080即上述的代理端口， 替换为自己的代理端口即可
-    os.environ['http_proxy']= "http://127.0.0.1:1080"
-    os.environ['https_proxy']= "https://127.0.0.1:1080"
-    os.environ['HTTP_PROXY']= os.environ['http_proxy']
-    os.environ['HTTPS_PROXY']= os.environ['https_proxy']
-    ```
+    - urllib3 1.26版本之前
+
+        ```python
+        import os
+        # 这里的1080即上述的代理端口， 替换为自己的代理端口即可
+        os.environ['http_proxy']= "http://127.0.0.1:1080"
+        os.environ['https_proxy']= "https://127.0.0.1:1080"
+        os.environ['HTTP_PROXY']= os.environ['http_proxy']
+        os.environ['HTTPS_PROXY']= os.environ['https_proxy']
+        ```
+
+    - 1.26之后
+
+        ```python
+        import os
+        # 这里的1080即上述的代理端口， 替换为自己的代理端口即可
+        os.environ['http_proxy']= "http://127.0.0.1:1080"
+        os.environ['HTTP_PROXY']= os.environ['http_proxy']
+        os.environ['HTTPS_PROXY']= os.environ['http_proxy']
+        ```
 
 -  然后将该文件放入C盘用户文件夹下的**\\.ipython\profile_default\startup** 中
 
