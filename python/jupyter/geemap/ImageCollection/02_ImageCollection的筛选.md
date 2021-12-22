@@ -28,3 +28,4 @@ print(mod13A2.aggregate_array('system:id').getInfo())
 ```
 
 - 这个筛选方法比较特殊，它可以选择 **“day_of_year, day_of_month, and day_of_week”** 三种，选择 **day_of_year** 时，按照一年有 365 或者 366天，那上述代码就表示 **时间序列** 在一年中的第58天和119天之间的 **Image** ，这样就能较为准确的选择 **三月到四月** 的影像， **day_of_month, and day_of_week** 同理
+
