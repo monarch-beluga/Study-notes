@@ -14,6 +14,8 @@
 
 [1008 Elevator](https://pintia.cn/problem-sets/994805342720868352/problems/994805511923286016) 
 
+[1009 Product of Polynomials](https://pintia.cn/problem-sets/994805342720868352/problems/994805509540921344) 
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
