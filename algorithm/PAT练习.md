@@ -16,6 +16,10 @@
 
 [1009 Product of Polynomials](https://pintia.cn/problem-sets/994805342720868352/problems/994805509540921344) 
 
+[1011 World Cup Betting](https://pintia.cn/problem-sets/994805342720868352/problems/994805504927186944) 
+
+[1012 The Best Rank](https://pintia.cn/problem-sets/994805342720868352/problems/994805502658068480) 排序
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
@@ -33,4 +37,12 @@
 #### 四、树
 
 [1004  Counting Leaves](https://pintia.cn/problem-sets/994805342720868352/problems/994805521431773184) 层次遍历(队列使用)
+
+
+
+#### 五、查找
+
+[1010 Radix](https://pintia.cn/problem-sets/994805342720868352/problems/994805507225665536) 二分查找
+
+
 
