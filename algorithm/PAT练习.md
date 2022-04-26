@@ -48,3 +48,11 @@
 
 
 
+#### 六、栈、队列
+
+[1014 Waiting in Line](https://pintia.cn/problem-sets/994805342720868352/problems/994805498207911936) 队列
+
+
+
+
+
