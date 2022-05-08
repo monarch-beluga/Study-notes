@@ -20,6 +20,8 @@
 
 [1012 The Best Rank](https://pintia.cn/problem-sets/994805342720868352/problems/994805502658068480) 排序
 
+[1015 Reversible Primes](https://pintia.cn/problem-sets/994805342720868352/problems/994805495863296000) 求素数
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
