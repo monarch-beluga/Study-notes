@@ -22,6 +22,8 @@
 
 [1015 Reversible Primes](https://pintia.cn/problem-sets/994805342720868352/problems/994805495863296000) 求素数
 
+[1016 Phone Bills](https://pintia.cn/problem-sets/994805342720868352/problems/994805493648703488) 排序，时间计算
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
