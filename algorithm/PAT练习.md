@@ -24,6 +24,8 @@
 
 [1016 Phone Bills](https://pintia.cn/problem-sets/994805342720868352/problems/994805493648703488) 排序，时间计算
 
+[1017 Queueing at Bank](https://pintia.cn/problem-sets/994805342720868352/problems/994805491530579968) 排序
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
