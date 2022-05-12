@@ -40,6 +40,8 @@
 
 [1013 Battle Over Cities](https://pintia.cn/problem-sets/994805342720868352/problems/994805500414115840) ==深度优先算法== 
 
+[1018 Public Bike Management](https://pintia.cn/problem-sets/994805342720868352/problems/994805489282433024) ==最短路径(深度优先+回溯)== 
+
 
 
 #### 四、树
