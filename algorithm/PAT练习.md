@@ -26,6 +26,8 @@
 
 [1017 Queueing at Bank](https://pintia.cn/problem-sets/994805342720868352/problems/994805491530579968) 排序
 
+[1019 General Palindromic Number](https://pintia.cn/problem-sets/994805342720868352/problems/994805487143337984) 
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
