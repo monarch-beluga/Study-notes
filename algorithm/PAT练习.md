@@ -44,11 +44,15 @@
 
 [1018 Public Bike Management](https://pintia.cn/problem-sets/994805342720868352/problems/994805489282433024) ==最短路径(深度优先+回溯)== 
 
+[1021 Deepest Root](https://pintia.cn/problem-sets/994805342720868352/problems/994805482919673856) ==两次深度优先(查找最深节点)== 
+
 
 
 #### 四、树
 
 [1004  Counting Leaves](https://pintia.cn/problem-sets/994805342720868352/problems/994805521431773184) 层次遍历(队列使用)
+
+[1020 Tree Traversals](https://pintia.cn/problem-sets/994805342720868352/problems/994805485033603072) 已知后序+中序求层次
 
 
 
