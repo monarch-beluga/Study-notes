@@ -28,6 +28,8 @@
 
 [1019 General Palindromic Number](https://pintia.cn/problem-sets/994805342720868352/problems/994805487143337984) 
 
+[1022 Digital Library](https://pintia.cn/problem-sets/994805342720868352/problems/994805480801550336) 
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
