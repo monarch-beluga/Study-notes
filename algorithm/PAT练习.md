@@ -30,6 +30,8 @@
 
 [1022 Digital Library](https://pintia.cn/problem-sets/994805342720868352/problems/994805480801550336) 
 
+[1023 Have Fun with Numbers](https://pintia.cn/problem-sets/994805342720868352/problems/994805478658260992) 
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
