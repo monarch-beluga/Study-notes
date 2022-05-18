@@ -34,6 +34,8 @@
 
 [1024 Palindromic Number](https://pintia.cn/problem-sets/994805342720868352/problems/994805476473028608) 
 
+[1025 PAT Ranking](https://pintia.cn/problem-sets/994805342720868352/problems/994805474338127872) 排序，排名
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
