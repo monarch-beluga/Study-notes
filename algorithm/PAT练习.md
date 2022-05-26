@@ -36,6 +36,10 @@
 
 [1025 PAT Ranking](https://pintia.cn/problem-sets/994805342720868352/problems/994805474338127872) 排序，排名
 
+[1027 Colors in Mars](https://pintia.cn/problem-sets/994805342720868352/problems/994805470349344768) 
+
+[1028 List Sorting](https://pintia.cn/problem-sets/994805342720868352/problems/994805468327690240) 
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
