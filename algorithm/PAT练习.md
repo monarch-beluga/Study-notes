@@ -40,6 +40,8 @@
 
 [1028 List Sorting](https://pintia.cn/problem-sets/994805342720868352/problems/994805468327690240) 
 
+[1029 Median](https://pintia.cn/problem-sets/994805342720868352/problems/994805466364755968) 
+
 
 
 #### 二、哈希表 ==重点是空间换时间==
