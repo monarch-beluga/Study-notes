@@ -60,6 +60,8 @@
 
 [1021 Deepest Root](https://pintia.cn/problem-sets/994805342720868352/problems/994805482919673856) ==两次深度优先(查找最深节点)== 
 
+[1030 Travel Plan](https://pintia.cn/problem-sets/994805342720868352/problems/994805464397627392) ==最短路径(深度优先+回溯)== 
+
 
 
 #### 四、树
