@@ -50,6 +50,8 @@
 
 [1002 A+B for Polynomials](https://pintia.cn/problem-sets/994805342720868352/problems/994805526272000000) 
 
+[1032 Sharing](https://pintia.cn/problem-sets/994805342720868352/problems/994805460652113920) 
+
 
 
 #### 三、 图
