@@ -237,3 +237,36 @@ gasd
 - **DQL: 数据库查询语言** 
 - DCL: 数据库控制语言
 
+
+
+> 外部访问
+
+1，登进MySQL之后，
+
+2，输入以下语句，进入mysql库：
+
+```mysql
+use mysql
+```
+
+3，更新域属性，'%'表示允许外部访问：
+
+```mysql
+update user set host='%' where user ='root';
+```
+
+4，执行以上语句之后再执行：
+
+```mysql
+FLUSH PRIVILEGES;
+```
+
+5，再执行授权语句：
+
+```mysql
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'WITH GRANT OPTION;
+```
+
+
+然后外部就可以通过账户密码访问了。
+
