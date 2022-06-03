@@ -268,5 +268,5 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'WITH GRANT OPTION;
 ```
 
 
-然后外部就可以通过账户密码访问了。
+然后外部就可以通过账户密码和ip地址访问了。
 
