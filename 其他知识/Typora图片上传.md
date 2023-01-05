@@ -10,10 +10,9 @@
 
 - 下载上传图片的软件
 
-[点击下载](https://pan.baidu.com/s/181MbqEJSfRCpAOEYAfRC8Q )
-提取码：keyn
+[官方下载地址](https://github.com/xiajingren/EasyBlogImageForTypora/releases/)
 
-![image-20210313122449879](https://img2020.cnblogs.com/blog/2213660/202103/2213660-20210313123901492-1869915406.png) 
+![image-20221230161005957](https://img2023.cnblogs.com/blog/2213660/202212/2213660-20221230161005981-283531836.png) 
 
 将软件提取出来
 
@@ -49,7 +48,8 @@
 4. 密码
 
    ```shell
-   用户密码
+   用户密码 (弃用)
+   博客园更新了令牌系统，所以这里要去博客园后台创建一下令牌，然后输入
    ```
 
 5. 博客MetaWeblog API地址
