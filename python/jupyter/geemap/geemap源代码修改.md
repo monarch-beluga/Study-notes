@@ -1,4 +1,4 @@
-## 修改
+## ~~修改~~ （高版本弃用）
 
 - 开始地图加载的图层
 
@@ -8,9 +8,9 @@
         self.add_layer(basemap_tiles['HYBRID'])
     ```
 
-- **shp_to_ee** 加载shp文件出现无法识别编码的问题
+- ~~**shp_to_ee** 加载shp文件出现无法识别编码的问题~~
 
-    **shp_to_ee** 导入shp文件的原理是先将shp文件读写成json文件，再将json文件读取成ee图层数据， 所以要修改两个函数 **shp_to_ee** 和 **shp_to_geojson**
+    ~~**shp_to_ee** 导入shp文件的原理是先将shp文件读写成json文件，再将json文件读取成ee图层数据， 所以要修改两个函数 **shp_to_ee** 和 **shp_to_geojson**~~
 
     ```python
     def shp_to_ee(in_shp, encoding=None):

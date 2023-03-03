@@ -14,11 +14,11 @@
 
     2.  **shadowsocksR** 
 
-        ![image-20201116101654031](https://img2020.cnblogs.com/blog/2213660/202011/2213660-20201116101655542-1225726785.png)
+        ![image-20201116101654031](D:\Study\Project\Study-Code\Front end\JavaScript\temp\img1.png)
 
     3.  **V2ray** 
 
-        ![image-20201116101759957](https://img2020.cnblogs.com/blog/2213660/202011/2213660-20201116101801370-283716018.png)
+        ![image-20201116101759957](D:\Study\Project\Study-Code\Front end\JavaScript\temp\img2.png)
 
 - 编写一个 **startup.py** 的文件
 
@@ -43,7 +43,7 @@
         os.environ['HTTPS_PROXY']= os.environ['http_proxy']
         ```
 
--  然后将该文件放入C盘用户文件夹下的**\\.ipython\profile_default\startup** 中
+-  然后将该文件放入C盘用户文件夹下的**%USERPROFILE%\\.ipython\profile_default\startup** 中
 
     ![image-20201116102330525](https://img2020.cnblogs.com/blog/2213660/202011/2213660-20201116102331899-1424343006.png)
 
