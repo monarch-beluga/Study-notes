@@ -14,11 +14,11 @@
 
     2.  **shadowsocksR** 
 
-        ![image-20201116101654031](D:\Study\Project\Study-Code\Front end\JavaScript\temp\img1.png)
+        ![image-20230309213120470](https://img2023.cnblogs.com/blog/2213660/202303/2213660-20230309213121843-67747669.png)
 
     3.  **V2ray** 
 
-        ![image-20201116101759957](D:\Study\Project\Study-Code\Front end\JavaScript\temp\img2.png)
+        ![image-20230309213214094](https://img2023.cnblogs.com/blog/2213660/202303/2213660-20230309213215203-1733398350.png)
 
 - 编写一个 **startup.py** 的文件
 

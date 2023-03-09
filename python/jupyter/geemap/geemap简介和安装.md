@@ -12,9 +12,25 @@
 
 ## 安装
 
-要使用**geemap**，您必须首先[注册](https://earthengine.google.com/signup/)一个[Google Earth Engine](https://earthengine.google.com/)帐户。
+~~要使用**geemap**，您必须首先[注册](https://earthengine.google.com/signup/)一个[Google Earth Engine](https://earthengine.google.com/)帐户。~~ **Google Earth Engine已提供免费使用，无需申请账户**
 
-### 基于PyPI的安装
+### 前置安装
+
+由于方便geemap的使用，建议先安装geopandas
+
+1. 在 [python第三方库](https://www.lfd.uci.edu/~gohlke/pythonlibs/) 中下载以下库，按以下顺序进行安装
+
+   ```shell
+   GDAL
+   rasterio
+   pyproj
+   Fiona
+   Shapely
+   ```
+
+2. 然后使用 pip install geopandas 安装geopandas库
+
+### 基于PyPI的安装(推荐)
 
 ```bash
 pip install geemap
