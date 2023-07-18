@@ -12,7 +12,7 @@
 
 [MinGW-W64-install.exe](https://sourceforge.net/projects/mingw-w64/files/Toolchains targetting Win32/Personal Builds/mingw-builds/installer/mingw-w64-install.exe) 然后再在线安装，或者下载离线包(较快)
 
-![image-20210413193037376](https://img2020.cnblogs.com/blog/2213660/202104/2213660-20210413193037974-337149536.png) 
+![image-20230316221901783](https://img2023.cnblogs.com/blog/2213660/202303/2213660-20230316221902892-333882483.png) 
 
 这里我选择的是下载离线包
 
