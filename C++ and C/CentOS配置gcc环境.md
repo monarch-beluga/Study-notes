@@ -65,6 +65,7 @@ gdb --version
 环境配置
 
 ```shell
+# vim /etc/profile
 # 路径可自定义
 GCC_PACKAGE_HOME=/usr/gcc
 
