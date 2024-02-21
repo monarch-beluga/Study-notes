@@ -65,7 +65,9 @@ gdb --version
 环境配置
 
 ```shell
+# 路径可自定义
 GCC_PACKAGE_HOME=/usr/gcc
+
 export PATH=$PATH:${GCC_PACKAGE_HOME}/bin
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:${GCC_PACKAGE_HOME}/include
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:${GCC_PACKAGE_HOME}/include
