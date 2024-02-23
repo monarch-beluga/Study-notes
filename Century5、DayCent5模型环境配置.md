@@ -4,7 +4,7 @@
 
 由于处于Linux环境下，一些常用的命令行指令可参考这里 [常见的Linux指令](Linux/常见的Linux指令.md)
 
-在编译Century5、DayCent5模型时需要gcc、g++环境  [Ubuntu配置gcc环境](C++ and C/Ubuntu配置gcc环境.md)
+在编译Century5、DayCent5模型时需要gcc、g++环境  [Ubuntu配置gcc环境](Cplus and C/Ubuntu配置gcc环境.md)
 
 为了方便操作，这里所有的命令都是在windows的终端上使用ssh连接虚拟后进行指令输入 [ubuntu启用ssh](Linux/ubuntu启用ssh)
 
