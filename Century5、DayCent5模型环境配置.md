@@ -6,7 +6,7 @@
 
 在编译Century5、DayCent5模型时需要gcc、g++环境  [Ubuntu配置gcc环境](Cplus_and_C/Ubuntu配置gcc环境.md)
 
-为了方便操作，这里所有的命令都是在windows的终端上使用ssh连接虚拟后进行指令输入 [ubuntu启用ssh](Linux/ubuntu启用ssh)
+为了方便操作，这里所有的命令都是在windows的终端上使用ssh连接虚拟后进行指令输入 [ubuntu启用ssh](Linux/ubuntu启用ssh.md)
 
 
 
