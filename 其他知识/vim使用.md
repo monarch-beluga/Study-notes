@@ -4,10 +4,10 @@
 
 ```bash
 
-- set tabstop=4：tab键设置为4个空格 
-- set number：显示行号
-- set cindent：设置c语言标准缩进方式
-- set shiftwidth=4：设置缩进为4个空格
+set tabstop=4：# tab键设置为4个空格 
+set number  # 显示行号
+set cindent # 设置c语言标准缩进方式
+set shiftwidth=4  # 设置缩进为4个空格
 
 
 
@@ -28,7 +28,7 @@
     O在本行之前新增一行，并进入插入模式
     s删除当前字符，并进入插入模式
     S删除当前行中的所有文本，并进入插入模式
-    ```
+```
 
 - 命令模式：在正常模式中按下:(英文冒号)，会进入命令模式
 
