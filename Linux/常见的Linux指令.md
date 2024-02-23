@@ -47,3 +47,5 @@
 
 - sudo: ubuntu中以管理员身份执行指令
 
+- alias: 设置指令别名，如 alias la='ls -A'，则 la就可以指代 ls -A 这条指令
+

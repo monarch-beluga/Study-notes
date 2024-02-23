@@ -457,3 +457,21 @@ vim Ecosystem/Weather/src/WeatherTransform.h
 
 ![image-20240223175838162](https://img2023.cnblogs.com/blog/2213660/202402/2213660-20240223175840080-517554360.png)
 
+
+
+### 四、模型设置别名方便使用
+
+由于模型在一个指定的目录中，每次调用可能有很长的文件路径，所以可以使用别名的方式来方便调用亦或者将模型可执行文件所在文件夹加入系统环境路径中
+
+我这里的模型路径在 /home/monarch/data/IRC/rev974/Ecosystem/Century5/bin 路径下所以可以如下设置
+
+```shell
+alias century5='/home/monarch/data/IRC/rev974/Ecosystem/Century5/bin/century.gxx.exe'
+alias daycent5='/home/monarch/data/IRC/rev974/Ecosystem/Century5/bin/daycent.gxx.exe'
+```
+
+这只是临时的终端配置，如果要永久生效，可以将上述命令写入/etc/profile配置文件中,这时，不管我们在那个路径，都可以使用century5和daycent5来调用模型
+
+例如我在用户文件夹下调用daycent5模型
+
+![image-20240223181014301](https://img2023.cnblogs.com/blog/2213660/202402/2213660-20240223181016693-1319217426.png)
