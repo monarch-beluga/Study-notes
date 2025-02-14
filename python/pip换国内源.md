@@ -13,3 +13,6 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
+> jijg
+
+g
