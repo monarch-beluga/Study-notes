@@ -223,3 +223,22 @@ vim gdm-password
 
 到此Ubuntu虚拟机正式安装完成，想要初步了解Linux指令的可以参考这个 [常见的Linux指令](常见的Linux指令.md)
 
+
+
+#### apt设置国内镜像
+
+24.04版本，在`/etc/apt/sources.list.d` 目录的 `ubuntu.sources`文件中写入
+
+```shell
+# 中科大源
+Types: deb
+URIs: http://mirrors.ustc.edu.cn/ubuntu/
+Suites: noble noble-updates noble-security
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+```
+
+
+
+
+

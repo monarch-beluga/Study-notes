@@ -11,7 +11,7 @@ sudo apt install build-essential
 ```shell
 # 查看gcc是否安装完成
 gcc --version
-# 查看g++是否安装完成
+# 查看g++是否安装
 g++ --version
 # 查看gdb是否安装完成
 gdb --version
@@ -23,7 +23,25 @@ gdb --version
 
 #### 配置gcc第三方库环境变量
 
-使用vim 打开 /etc/profile
+```shell
+GCC_PACKAGE_HOME=/usr/local
+
+export PATH=$PATH:${GCC_PACKAGE_HOME}/bin
+
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:${GCC_PACKAGE_HOME}/include
+
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:${GCC_PACKAGE_HOME}/include
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GCC_PACKAGE_HOME}/lib
+
+export LIBRARY_PATH=$LIBRARY_PATH:${GCC_PACKAGE_HOME}/lib
+```
+
+
+
+使用vim 打开 /etc/profilels
+
+
 
 ```shell
 sudo vim /etc/profile
